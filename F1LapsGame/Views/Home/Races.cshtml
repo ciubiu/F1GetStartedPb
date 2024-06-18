@@ -1,0 +1,36 @@
+﻿@model DataViewPage<Race>
+@{
+    ViewData["Title"] = "Races table";
+}
+
+<div class="text-center">
+    <h1 class="display-4">All Races</h1>
+
+    <partial name="_NavigationBarPartial" />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Year</th>
+                <th>Round</th>
+                <th>Circuit</th>
+                <th>Name</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var race in Model)
+            {
+                <tr>
+                    <td>@race.RaceId</td>
+                    <td>@Html.DisplayFor(modelItem => race.Year)</td>
+                    <td>@race.Round</td>
+                    <td>@race.CircuitId</td>
+                    <td>@race.Name</td>
+                    <td>@race.Date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,42 @@
+﻿@model DataViewPage<Driver>
+@{
+    ViewData["Title"] = "All Drivers";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Drivers</h1>
+
+    <partial name="_NavigationBarPartial" />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Ref</th>
+                <th>DOB</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var driver in Model)
+            {
+                <tr>
+                    <td>@driver.DriverId</td>
+                    <td>@driver.Number</td>
+                    <td>
+                        @driver.Forename @driver.Surname @if (!string.IsNullOrEmpty(driver.Code))
+                        {
+                            <text>(@driver.Code)</text>
+                        }
+                    </td>
+                    <td>@driver.DriverRef</td>
+                    <td>@driver.Dob.Value.ToString("dd.MM.yyyy")</td>
+                    <td>@driver.Nationality</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

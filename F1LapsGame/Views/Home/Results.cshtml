@@ -1,0 +1,45 @@
+﻿@model DataViewPage<Result>
+@{
+    ViewData["Title"] = "All Results";
+}
+
+<div class="text-center">
+    <h1 class="display-4">All Results (raw)</h1>
+
+    <partial name="_NavigationBarPartial" />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ResultID</th>
+                <th>RaceID</th>
+                <th>DriverID</th>
+                <th>Number</th>
+                <th>Starting</th>
+                <th>Finished</th>
+                <th>Points</th>
+                <th>Laps</th>
+                <th>Time</th>
+                <th>Status</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var laptime in Model)
+            {
+                <tr>
+                    <td>@laptime.ResultId</td>
+                    <td>@laptime.RaceId</td>
+                    <td>@laptime.DriverId</td>
+                    <td>@laptime.Number</td>
+                    <td>@laptime.Grid</td>
+                    <td>@laptime.Position</td>
+                    <td>@laptime.Points</td>
+                    <td>@laptime.Laps</td>
+                    <td>@laptime.Time</td>
+                    <td>@laptime.StatusId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+﻿@model List<Result>
+
+@{
+    ViewData["Title"] = "Race lap by lap";
+    var newGuid = TempData["NextLapGuid"];
+}
+<h1>
+    @Context.Session.GetInt32("raceYear") @Context.Session.GetString("raceLocation") - Starting Grid
+</h1>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Grid</th>
+            <th>Driver</th>
+            <th>Number</th>
+            <th>Constructor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var laptime in Model)
+        {
+            <tr>
+                <td>@laptime.Grid</td>
+                <td>@laptime.Driver.Forename @laptime.Driver.Surname</td>
+                <td>@laptime.Number</td>
+                <td>@laptime.Constructor.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-dark" asp-action="NextLap" asp-route-id="@ViewContext.RouteData.Values["id"]" asp-route-guid="@newGuid">Lets Start</a>

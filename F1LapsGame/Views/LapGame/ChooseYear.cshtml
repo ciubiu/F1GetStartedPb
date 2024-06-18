@@ -1,0 +1,22 @@
+﻿@model List<int>
+
+<h1 class="pb-3">Choose Year</h1>
+<p>
+
+@{
+    int counter = 1;
+    foreach (var item in Model)
+    {
+        <a class="btn btn-info" asp-action="ChooseRace" asp-route-id=@item.ToString()>@item</a>
+        counter++;
+
+        if (counter > 9)
+        {
+            counter = 1;
+        <p />
+
+        }
+    }
+}
+
+

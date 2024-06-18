@@ -1,0 +1,41 @@
+﻿@model DataViewPage<Laptime>
+@{
+    ViewData["Title"] = "All Laptimes";
+}
+
+<div class="text-center">
+    <h1 class="display-4">All Laptimes (raw)</h1>
+
+    <partial name="_NavigationBarPartial" />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>RowID</th>
+                <th>Race ID</th>
+                <th>Driver ID</th>
+                <th>Lap</th>
+                <th>Position</th>
+                <th>Time (s)</th>
+                <th>Milliseconds</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var laptime in Model)
+            {
+                <tr>
+                    <td>@laptime.RowId</td>
+
+                    <td>@laptime.RaceId</td>
+                    <td>@laptime.DriverId</td>
+                    <td>@laptime.Lap</td>
+                    <td>@laptime.Position</td>
+                    <td>@laptime.Time</td>
+                    <td>@laptime.Milliseconds</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    
+</div>

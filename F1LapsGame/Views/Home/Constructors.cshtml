@@ -1,0 +1,34 @@
+﻿@model DataViewPage<Constructor>
+@{
+    ViewData["Title"] = "All Constructors";
+}
+
+<div class="text-center">
+    <h1 class="display-4">All Constructors (raw)</h1>
+
+    <partial name="_NavigationBarPartial" />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ConstructorID</th>
+                <th>Constructor Ref</th>
+                <th>Name</th>
+                <th>Nationality</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var laptime in Model)
+            {
+                <tr>
+                    <td>@laptime.ConstructorId</td>
+                    <td>@laptime.ConstructorRef</td>
+                    <td>@laptime.Name</td>
+                    <td>@laptime.Nationality</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    
+</div>

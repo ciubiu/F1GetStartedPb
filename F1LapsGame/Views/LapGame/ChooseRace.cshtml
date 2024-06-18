@@ -1,0 +1,17 @@
+﻿@model List<Race>
+
+@{
+    ViewData["Title"] = "Choose Race";
+}
+
+<h1>Choose a race from @Context.Session.GetInt32("raceYear")</h1>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="m-3"><a class="btn btn-success" asp-action="StartingPosition" asp-route-id=@item.RaceId>@item.Name</a></div>
+    }
+}
+
+
+
